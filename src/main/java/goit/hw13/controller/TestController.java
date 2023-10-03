@@ -13,8 +13,8 @@ public class TestController {
 
     public String getTest(){
 
-        System.out.println("Test controller test done");
-        return "Test controller test done";
+        System.out.println("Hello world!");
+        return "Hello world!";
     }
 
 }

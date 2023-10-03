@@ -12,15 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/note")
 public class NoteController {
-/*
-вапвр
- */
+
     private final NoteService noteService;
 
     public NoteController(NoteService noteService) {
         this.noteService = noteService;
     }
-
 
     @GetMapping("/list")
     public ModelAndView getNotes() {
@@ -29,7 +26,6 @@ public class NoteController {
         result.addObject("notes", notes);
         return result;
     }
-
 
     @PostMapping("/delete")
     public ModelAndView deleteNote(@RequestParam(name = "id") Long id) {
