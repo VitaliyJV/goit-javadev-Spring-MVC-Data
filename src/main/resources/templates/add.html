@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Add note</title>
+    <title>Add</title>
     <style>
         body {
             background-color: #00FFFF;
@@ -20,11 +20,7 @@
 <body>
 <div class="container mt-5">
     <h2>Add</h2>
-    <form th:action="@{/add}" method="post" th:object="${note}">
-        <div class="mb-3">
-            <label for="id" class="form-label">Id</label>
-            <input type="number" id="id" th:field="*{id}" class="form-control" />
-        </div>
+    <form th:action="@{/note/save}" method="post" th:object="${note}">
         <div class="mb-4">
             <label for="title" class="form-label">Title</label>
             <input type="text" id="title" th:field="*{title}" class="form-control" />

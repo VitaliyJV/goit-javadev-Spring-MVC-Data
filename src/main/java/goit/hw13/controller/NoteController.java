@@ -1,18 +1,18 @@
 package goit.hw13.controller;
 
-import goit.hw13.entity.Note;
-import goit.hw13.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
+import goit.hw13.entity.Note;
+import goit.hw13.service.NoteService;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/note")
@@ -29,7 +29,7 @@ public class NoteController {
     @GetMapping("/list")
     public ModelAndView getNotes() {
         var notes = noteService.listAll();
-        ModelAndView result = new ModelAndView("note/list");
+        ModelAndView result = new ModelAndView("list");
         result.addObject("notes", notes);
         return result;
     }
@@ -40,10 +40,18 @@ public class NoteController {
         return getNotes();
     }
 
+    @GetMapping("/add")
+    public ModelAndView addNote() {
+        var note = new Note(0,"Insert your title","Insert your content");
+        ModelAndView result = new ModelAndView("add");
+        result.addObject("note", note);
+        return result;
+    }
+    
     @GetMapping("/edit")
     public ModelAndView editNote(@RequestParam(name = "id") Long id) {
         var note = noteService.getById(id);
-        ModelAndView result = new ModelAndView("note/edit");
+        ModelAndView result = new ModelAndView("edit");
         result.addObject("note", note);
         return result;
     }
@@ -58,4 +66,12 @@ public class NoteController {
         return getNotes();
     }
 
+    @PostMapping("/save")
+    public ModelAndView save(Note note, final BindingResult bindingResult) {
+    	if(note.getId()==0L)
+    		noteService.add(note);
+    	else
+    		noteService.update(note);
+       return new ModelAndView("redirect:/note/list");
+    }
 }

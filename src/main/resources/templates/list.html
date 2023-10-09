@@ -22,11 +22,13 @@
     </style>
 </head>
 <body>
+
 <div class="container text-center mt-3">
-  <form th:action="@{/add}" method="get">
+  <form th:action="@{/note/add}" method="get">
     <button type="submit" class="btn btn-primary btn-lg">Add new Note</button>
   </form>
 </div>
+
 <div class="container text-center mt-5">
   <h1>Notes</h1>
   <table class="table table-success table-striped table-hover border-primary">
@@ -44,11 +46,11 @@
       <td th:text="${note.getTitle()}"></td>
       <td th:text="${note.getContent()}"></td>
       <td>
-        <form th:action="@{'/delete?id=' + ${note.id}}" method="post">
+        <form th:action="@{'/note/delete?id=' + ${note.id}}" method="post">
           <input type="submit" class="btn btn-danger" value="Delete"/>
         </form>
         <br/>
-        <form th:action="@{'/edit'}" method="get">
+        <form th:action="@{'/note/edit'}" method="get">
           <input type="hidden" name="id" th:value="${note.id}"/>
           <input type="submit" class="btn btn-primary" value="Edit"/>
         </form>

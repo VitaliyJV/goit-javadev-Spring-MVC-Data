@@ -8,7 +8,7 @@ import java.util.*;
 @Service
 public class NoteService {
     private final Map<Long, Note> notes = new HashMap<>();
-
+    
     public List<Note> listAll() {
         return new ArrayList<>(notes.values());
     }
