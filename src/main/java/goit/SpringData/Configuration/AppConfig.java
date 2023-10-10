@@ -1,6 +1,6 @@
-package goit.hw13.Configuration;
+package goit.SpringData.Configuration;
 
-import goit.hw13.service.NoteService;
+import goit.SpringData.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;

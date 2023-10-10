@@ -1,14 +1,14 @@
-package goit.hw13;
+package goit.SpringData;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Hw13Application {
+public class SpringDataApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(Hw13Application.class, args);
+		SpringApplication.run(SpringDataApplication.class, args);
 
 
 	}

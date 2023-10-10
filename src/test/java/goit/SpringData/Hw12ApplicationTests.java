@@ -1,4 +1,4 @@
-package goit.hw13;
+package goit.SpringData;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

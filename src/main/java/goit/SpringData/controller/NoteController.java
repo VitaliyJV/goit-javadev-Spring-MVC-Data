@@ -1,4 +1,4 @@
-package goit.hw13.controller;
+package goit.SpringData.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import goit.hw13.entity.Note;
-import goit.hw13.service.NoteService;
-import jakarta.servlet.http.HttpServletResponse;
+import goit.SpringData.entity.Note;
+import goit.SpringData.service.NoteService;
 
 @Controller
 @RequestMapping("/note")
@@ -42,7 +41,8 @@ public class NoteController {
 
     @GetMapping("/add")
     public ModelAndView addNote() {
-        var note = new Note(0,"Insert your title","Insert your content");
+        long i = 0;
+        var note = new Note(i,"Insert your title","Insert your content");
         ModelAndView result = new ModelAndView("add");
         result.addObject("note", note);
         return result;
@@ -54,16 +54,6 @@ public class NoteController {
         ModelAndView result = new ModelAndView("edit");
         result.addObject("note", note);
         return result;
-    }
-
-    @PostMapping("/edit")
-    public ModelAndView saveNote(@RequestParam(name = "id") Long id,
-                                 @RequestParam(name = "title") String title,
-                                 @RequestParam(name = "content") String content) {
-        Note note = noteService.getById(id);
-        note.setTitle(title);
-        note.setContent(content);
-        return getNotes();
     }
 
     @PostMapping("/save")
