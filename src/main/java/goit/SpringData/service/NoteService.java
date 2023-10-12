@@ -2,18 +2,22 @@ package goit.SpringData.service;
 
 import goit.SpringData.entity.Note;
 import goit.SpringData.repository.NoteRepository;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-@Service
-@Data
-@RequiredArgsConstructor
-public class NoteService implements INoteService {
-    private final NoteRepository repository;
+//@Service
+//@Getter
+//@Setter
+//@Data
+//@RequiredArgsConstructor
+//@NoArgsConstructor
 
+public class NoteService implements INoteService {
+
+    private NoteRepository repository;
 
     @Override
     public List<Note> listAll() {
@@ -39,4 +43,13 @@ public class NoteService implements INoteService {
     public Optional<Note> getById(long id) {
         return repository.findById(id);
     }
+
+    public NoteRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(NoteRepository noteRepository) {
+        this.repository=noteRepository;
+    }
+
 }
