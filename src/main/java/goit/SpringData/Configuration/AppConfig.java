@@ -1,6 +1,5 @@
 package goit.SpringData.Configuration;
 
-import goit.SpringData.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +10,27 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
+import goit.SpringData.repository.NoteRepository;
+import goit.SpringData.service.NoteService;
+
 
 @Configuration
+@EnableJpaRepositories(basePackages = "goit.SpringData.repository")
 public class AppConfig
 {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    NoteRepository noteRepository;
+
+    @Bean(name = "noteService")
+    public NoteService noteService()
+    {
+        NoteService noteService = new NoteService();
+        noteService.setRepository(noteRepository);
+        return noteService;
+    }
     @Bean
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -43,6 +56,5 @@ public class AppConfig
         viewResolver.setTemplateEngine(templateEngine());
         return viewResolver;
     }
-
 
 }

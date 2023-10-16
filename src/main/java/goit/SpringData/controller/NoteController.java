@@ -21,10 +21,6 @@ public class NoteController {
     @Qualifier("noteService")
     private NoteService noteService;
 
-    public NoteController(NoteService noteService) {
-        this.noteService = noteService;
-    }
-
     @GetMapping("/list")
     public ModelAndView getNotes() {
         var notes = noteService.listAll();
@@ -47,7 +43,7 @@ public class NoteController {
         result.addObject("note", note);
         return result;
     }
-    
+
     @GetMapping("/edit")
     public ModelAndView editNote(@RequestParam(name = "id") Long id) {
         var note = noteService.getById(id);
@@ -58,10 +54,10 @@ public class NoteController {
 
     @PostMapping("/save")
     public ModelAndView save(Note note, final BindingResult bindingResult) {
-    	if(note.getId()==0L)
-    		noteService.add(note);
-    	else
-    		noteService.update(note);
-       return new ModelAndView("redirect:/note/list");
+        if(note.getId()==null)
+            noteService.add(note);
+        else
+            noteService.update(note);
+        return new ModelAndView("redirect:/note/list");
     }
 }

@@ -1,20 +1,14 @@
 package goit.SpringData.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import goit.SpringData.entity.Note;
 import goit.SpringData.repository.NoteRepository;
-import lombok.*;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.stereotype.Service;
 
-import java.util.*;
-
-//@Service
-//@Getter
-//@Setter
-//@Data
-//@RequiredArgsConstructor
-//@NoArgsConstructor
-
+@Transactional
 public class NoteService implements INoteService {
 
     private NoteRepository repository;
