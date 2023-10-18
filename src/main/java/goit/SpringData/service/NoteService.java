@@ -3,15 +3,20 @@ package goit.SpringData.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import goit.SpringData.entity.Note;
 import goit.SpringData.repository.NoteRepository;
 
-@Transactional
+@Service
 public class NoteService implements INoteService {
 
-    private NoteRepository repository;
+    private final NoteRepository repository;
+
+    public NoteService(NoteRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Note> listAll() {
@@ -40,10 +45,6 @@ public class NoteService implements INoteService {
 
     public NoteRepository getRepository() {
         return repository;
-    }
-
-    public void setRepository(NoteRepository noteRepository) {
-        this.repository=noteRepository;
     }
 
 }

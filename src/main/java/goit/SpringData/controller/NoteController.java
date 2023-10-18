@@ -1,5 +1,6 @@
 package goit.SpringData.controller;
 
+import goit.SpringData.service.INoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,9 +18,11 @@ import goit.SpringData.service.NoteService;
 @RequestMapping("/note")
 public class NoteController {
 
-    @Autowired
-    @Qualifier("noteService")
-    private NoteService noteService;
+    private INoteService noteService;
+
+    public NoteController(INoteService noteService) {
+        this.noteService = noteService;
+    }
 
     @GetMapping("/list")
     public ModelAndView getNotes() {
