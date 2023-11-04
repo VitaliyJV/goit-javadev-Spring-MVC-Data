@@ -1,2 +1,2 @@
 INSERT INTO users (username, password, role)
-VALUES ('user', 'jdbcDefault', 'USER', true);
+VALUES ('user', 'userjdbcDefault', 'USER', true);
