@@ -8,35 +8,30 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements IUserService{
     private final UserRepo uRepository;
 
     public UserService(UserRepo uRepository) {
         this.uRepository = uRepository;
     }
 
-
-    public List<User> listAllUsers() {
+    public List<User> listAll() {
         return uRepository.findAll();
     }
 
-
-    public void addUser(User user) {
+    public void add(User user) {
         uRepository.save(user);
     }
 
-
-    public void deleteUserById(long id) {
+    public void deleteById(long id) {
         uRepository.deleteById(id);
     }
 
-
-    public void updateUser(User user) {
+    public void update(User user) {
         uRepository.save(user);
     }
 
-
-    public Optional<User> getUserById(long id) {
+    public Optional<User> getUser(long id) {
         return uRepository.findById(id);
     }
 
