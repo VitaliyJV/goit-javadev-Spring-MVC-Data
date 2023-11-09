@@ -1,6 +1,6 @@
-package goit.SpringData.service;
+package goit.spring.data.service;
 
-import goit.SpringData.entity.User;
+import goit.spring.data.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

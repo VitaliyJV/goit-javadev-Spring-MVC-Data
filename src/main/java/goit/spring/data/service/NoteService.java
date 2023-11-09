@@ -1,12 +1,11 @@
-package goit.SpringData.service;
+package goit.spring.data.service;
 
 import java.util.List;
 import java.util.Optional;
 
+import goit.spring.data.entity.Note;
+import goit.spring.data.repository.NoteRepository;
 import org.springframework.stereotype.Service;
-
-import goit.SpringData.entity.Note;
-import goit.SpringData.repository.NoteRepository;
 
 @Service
 public class NoteService implements INoteService {

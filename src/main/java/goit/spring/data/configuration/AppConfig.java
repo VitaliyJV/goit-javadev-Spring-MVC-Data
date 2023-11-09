@@ -1,4 +1,4 @@
-package goit.SpringData.configuration;
+package goit.spring.data.configuration;
 
 import org.springframework.context.annotation.Configuration;
 

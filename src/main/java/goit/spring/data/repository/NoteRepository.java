@@ -1,6 +1,6 @@
-package goit.SpringData.repository;
+package goit.spring.data.repository;
 
-import goit.SpringData.entity.Note;
+import goit.spring.data.entity.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {

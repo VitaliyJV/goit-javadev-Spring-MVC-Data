@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.flywaydb:flyway-maven-plugin:8.5.13'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'

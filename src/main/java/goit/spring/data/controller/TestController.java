@@ -1,4 +1,4 @@
-package goit.SpringData.controller;
+package goit.spring.data.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

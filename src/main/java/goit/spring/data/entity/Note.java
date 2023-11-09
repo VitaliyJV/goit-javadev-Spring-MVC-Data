@@ -1,4 +1,4 @@
-package goit.SpringData.entity;
+package goit.spring.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

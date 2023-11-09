@@ -1,6 +1,7 @@
-package goit.SpringData.controller;
+package goit.spring.data.controller;
 
-import goit.SpringData.service.INoteService;
+import goit.spring.data.service.INoteService;
+import goit.spring.data.entity.Note;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import goit.SpringData.entity.Note;
-
 @Controller
 @RequestMapping("/note")
 public class NoteController {
 
-    private INoteService noteService;
+    private final INoteService noteService;
 
     public NoteController(INoteService noteService) {
         this.noteService = noteService;

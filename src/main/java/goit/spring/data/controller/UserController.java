@@ -1,7 +1,7 @@
-package goit.SpringData.controller;
+package goit.spring.data.controller;
 
-import goit.SpringData.entity.User;
-import goit.SpringData.repository.UserRepo;
+import goit.spring.data.entity.User;
+import goit.spring.data.repository.UserRepo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

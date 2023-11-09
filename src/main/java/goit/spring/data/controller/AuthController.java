@@ -1,4 +1,4 @@
-package goit.SpringData.controller;
+package goit.spring.data.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
